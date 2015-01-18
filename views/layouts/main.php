@@ -47,7 +47,7 @@ AppAsset::register($this);
                     'options' => ['class' => 'navbar-nav navbar-right'],
                     'items' => [
                         ['label' => Yii::t('pg.main', 'Home'), 'url' => ['/gallery/index']],
-                        ['label' => Yii::t('pg.main', 'Sign Out'), ' (' . Yii::$app->user->identity->username . ')',
+                        ['label' => Yii::t('pg.main', 'Sign Out') . ' (' . Yii::$app->user->identity->username . ')',
                             'url' => ['/auth/default/logout'],
                             'linkOptions' => ['data-method' => 'post']],
                     ],
