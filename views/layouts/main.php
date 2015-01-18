@@ -32,19 +32,27 @@ AppAsset::register($this);
                     'class' => 'navbar-inverse navbar-fixed-top',
                 ],
             ]);
-            echo Nav::widget([
-                'options' => ['class' => 'navbar-nav navbar-right'],
-                'items' => [
-                    ['label' => 'Home', 'url' => ['/site/index']],
-                    ['label' => 'About', 'url' => ['/site/about']],
-                    ['label' => 'Contact', 'url' => ['/site/contact']],
-                    Yii::$app->user->isGuest ?
-                        ['label' => 'Login', 'url' => ['/site/login']] :
-                        ['label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+
+            if(Yii::$app->user->isGuest) {
+                echo Nav::widget([
+                    'options' => ['class' => 'navbar-nav navbar-right'],
+                    'items' => [
+                        ['label' => Yii::t('pg.main', 'Home'), 'url' => ['/site/index']],
+                        ['label' => Yii::t('pg.main', 'Sign Up'), 'url' => ['/auth/default/signup']],
+                        ['label' => Yii::t('pg.main', 'Sign In'), 'url' => ['/auth/default/login']]
+                    ],
+                ]);
+            } else {
+                echo Nav::widget([
+                    'options' => ['class' => 'navbar-nav navbar-right'],
+                    'items' => [
+                        ['label' => Yii::t('pg.main', 'Home'), 'url' => ['/site/index']],
+                        ['label' => Yii::t('pg.main', 'Sign Out'), ' (' . Yii::$app->user->identity->username . ')',
                             'url' => ['/site/logout'],
                             'linkOptions' => ['data-method' => 'post']],
-                ],
-            ]);
+                    ],
+                ]);
+            }
             NavBar::end();
         ?>
 

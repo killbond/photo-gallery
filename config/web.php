@@ -16,10 +16,6 @@ $config = [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
-        'user' => [
-            'identityClass' => 'app\models\User',
-            'enableAutoLogin' => true,
-        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
@@ -52,8 +48,50 @@ $config = [
                 //Здесь будет описание правил ЧПУ
             ],
         ],
+        'authManager' => [
+            'class' => '\yii\rbac\DbManager',
+            'ruleTable' => 'AuthRule', // Optional
+            'itemTable' => 'AuthItem',  // Optional
+            'itemChildTable' => 'AuthItemChild',  // Optional
+            'assignmentTable' => 'AuthAssignment',  // Optional
+        ],
+        'user' => [
+            'class' => 'auth\components\User',
+            'identityClass' => 'auth\models\User', // or replace to your custom identityClass
+            'enableAutoLogin' => true,
+        ],
+        'i18n' => [
+            'translations' => [
+                'pg*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    //'basePath' => '@app/messages',
+                    //'sourceLanguage' => 'en-US',
+                    'fileMap' => [
+                        'main' => 'pg.main.php',
+                    ],
+                ],
+            ],
+        ],
     ],
     'params' => $params,
+    'modules' => [
+        'auth' => [
+            'class' => 'auth\Module',
+            'layout' => '//main', // Layout when not logged in yet
+            'layoutLogged' => '//main', // Layout for logged in users
+            'attemptsBeforeCaptcha' => 3, // Optional
+            'supportEmail' => 'support@mydomain.com', // Email for notifications
+            'passwordResetTokenExpire' => 3600, // Seconds for token expiration
+            'superAdmins' => ['admin'], // SuperAdmin users
+            'tableMap' => [ // Optional, but if defined, all must be declared
+                'User' => 'user',
+                'UserStatus' => 'user_status',
+                'ProfileFieldValue' => 'profile_field_value',
+                'ProfileField' => 'profile_field',
+                'ProfileFieldType' => 'profile_field_type',
+            ],
+        ],
+    ]
 ];
 
 if (YII_ENV_DEV) {

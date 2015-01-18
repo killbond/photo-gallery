@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "6b3b4f545b5c18b57888bf6eff320719",
+    "hash": "d0bb400953f23f12bf40a9532be0cde1",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -316,17 +316,17 @@
             "time": "2013-11-30 08:25:19"
         },
         {
-            "name": "robregonm/yii2-auth",
+            "name": "killbond/yii2-auth",
             "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/robregonm/yii2-auth.git",
-                "reference": "8a0ee04f3322824de9f22d18098eddbe8f6fa6ae"
+                "url": "https://github.com/killbond/yii2-auth.git",
+                "reference": "3d64ac160568ba683b17963b00b4dfb17d57c0e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/robregonm/yii2-auth/zipball/8a0ee04f3322824de9f22d18098eddbe8f6fa6ae",
-                "reference": "8a0ee04f3322824de9f22d18098eddbe8f6fa6ae",
+                "url": "https://api.github.com/repos/killbond/yii2-auth/zipball/3d64ac160568ba683b17963b00b4dfb17d57c0e5",
+                "reference": "3d64ac160568ba683b17963b00b4dfb17d57c0e5",
                 "shasum": ""
             },
             "require": {
@@ -348,10 +348,9 @@
             ],
             "authors": [
                 {
-                    "name": "robregonm",
-                    "email": "robregonm@gmail.com",
-                    "homepage": "http://obregon.co",
-                    "role": "Author"
+                    "name": "killbond",
+                    "email": "killbond@mail.ru",
+                    "role": "Codeveloper"
                 }
             ],
             "description": "Yii 2 User Authentication & Role Based Access Control (RBAC) Module",
@@ -364,7 +363,7 @@
                 "yii",
                 "yii2"
             ],
-            "time": "2015-01-09 15:21:47"
+            "time": "2015-01-18 21:31:37"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -816,12 +815,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "55a03b4a2bc87d7ac9463364c3c1d67c5a13906a"
+                "reference": "d79ae87d06ab08547c7dbebbe5fba8ffc9a5d360"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/55a03b4a2bc87d7ac9463364c3c1d67c5a13906a",
-                "reference": "55a03b4a2bc87d7ac9463364c3c1d67c5a13906a",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/d79ae87d06ab08547c7dbebbe5fba8ffc9a5d360",
+                "reference": "d79ae87d06ab08547c7dbebbe5fba8ffc9a5d360",
                 "shasum": ""
             },
             "require": {
@@ -855,7 +854,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2015-01-11 03:59:50"
+            "time": "2015-01-18 18:38:18"
         },
         {
             "name": "yiisoft/yii2-faker",
