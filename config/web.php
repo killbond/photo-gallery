@@ -6,6 +6,7 @@ $config = [
     'id' => 'photo_gallery',
     'name' => 'Фотогаллерея на Yii2 для CMG',
     'basePath' => dirname(__DIR__),
+    'defaultRoute' => 'gallery/index',
     'bootstrap' => ['log'],
     'language' => 'ru-RU',
     'components' => [
@@ -17,7 +18,7 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'gallery/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',

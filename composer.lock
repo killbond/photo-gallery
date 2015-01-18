@@ -321,12 +321,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/killbond/yii2-auth.git",
-                "reference": "3d64ac160568ba683b17963b00b4dfb17d57c0e5"
+                "reference": "919dd669fdcf7a78f3d424fa867e483e5d2f1453"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/killbond/yii2-auth/zipball/3d64ac160568ba683b17963b00b4dfb17d57c0e5",
-                "reference": "3d64ac160568ba683b17963b00b4dfb17d57c0e5",
+                "url": "https://api.github.com/repos/killbond/yii2-auth/zipball/919dd669fdcf7a78f3d424fa867e483e5d2f1453",
+                "reference": "919dd669fdcf7a78f3d424fa867e483e5d2f1453",
                 "shasum": ""
             },
             "require": {
@@ -363,7 +363,7 @@
                 "yii",
                 "yii2"
             ],
-            "time": "2015-01-18 21:31:37"
+            "time": "2015-01-18 21:59:42"
         },
         {
             "name": "swiftmailer/swiftmailer",
