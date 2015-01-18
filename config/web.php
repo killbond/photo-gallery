@@ -3,9 +3,11 @@
 $params = require(__DIR__ . '/params.php');
 
 $config = [
-    'id' => 'basic',
+    'id' => 'photo_gallery',
+    'name' => 'Фотогаллерея на Yii2 для CMG',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
+    'language' => 'ru-RU',
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -38,6 +40,18 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
+        'assetManager'=>[
+            'class'=>'yii\web\AssetManager',
+            'linkAssets'=>true,
+        ],
+        'urlManager' => [
+            'class'=>'yii\web\UrlManager',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                //Здесь будет описание правил ЧПУ
+            ],
+        ],
     ],
     'params' => $params,
 ];
