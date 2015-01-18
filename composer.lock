@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "10d8d3b92d960bec820ae06a5e92ecc8",
+    "hash": "6b3b4f545b5c18b57888bf6eff320719",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -316,17 +316,68 @@
             "time": "2013-11-30 08:25:19"
         },
         {
+            "name": "robregonm/yii2-auth",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/robregonm/yii2-auth.git",
+                "reference": "8a0ee04f3322824de9f22d18098eddbe8f6fa6ae"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/robregonm/yii2-auth/zipball/8a0ee04f3322824de9f22d18098eddbe8f6fa6ae",
+                "reference": "8a0ee04f3322824de9f22d18098eddbe8f6fa6ae",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-bootstrap": "*",
+                "yiisoft/yii2-composer": "*",
+                "yiisoft/yii2-swiftmailer": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "auth\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "robregonm",
+                    "email": "robregonm@gmail.com",
+                    "homepage": "http://obregon.co",
+                    "role": "Author"
+                }
+            ],
+            "description": "Yii 2 User Authentication & Role Based Access Control (RBAC) Module",
+            "keywords": [
+                "Authentication",
+                "access",
+                "auth",
+                "rbac",
+                "user",
+                "yii",
+                "yii2"
+            ],
+            "time": "2015-01-09 15:21:47"
+        },
+        {
             "name": "swiftmailer/swiftmailer",
             "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "e29c7b692bae6610b137670d6749151fd6e41608"
+                "reference": "db95cfa68a8bc91d1c54f75c416f481c9a8bd100"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/e29c7b692bae6610b137670d6749151fd6e41608",
-                "reference": "e29c7b692bae6610b137670d6749151fd6e41608",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/db95cfa68a8bc91d1c54f75c416f481c9a8bd100",
+                "reference": "db95cfa68a8bc91d1c54f75c416f481c9a8bd100",
                 "shasum": ""
             },
             "require": {
@@ -365,7 +416,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-12-05 14:17:46"
+            "time": "2015-01-18 13:49:36"
         },
         {
             "name": "yiisoft/yii2",
@@ -373,12 +424,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "3b7f34d7f80b18a912a98546215933b43e9a3925"
+                "reference": "486c3af9098ba35b18d8ef11717a6b09be6e6361"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/3b7f34d7f80b18a912a98546215933b43e9a3925",
-                "reference": "3b7f34d7f80b18a912a98546215933b43e9a3925",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/486c3af9098ba35b18d8ef11717a6b09be6e6361",
+                "reference": "486c3af9098ba35b18d8ef11717a6b09be6e6361",
                 "shasum": ""
             },
             "require": {
@@ -454,7 +505,7 @@
                 "framework",
                 "yii2"
             ],
-            "time": "2015-01-17 03:09:28"
+            "time": "2015-01-18 13:09:26"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
