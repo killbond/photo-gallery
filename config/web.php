@@ -69,6 +69,7 @@ $config = [
                     //'sourceLanguage' => 'en-US',
                     'fileMap' => [
                         'main' => 'pg.main.php',
+                        'photo' => 'pg.photo.php'
                     ],
                 ],
             ],
