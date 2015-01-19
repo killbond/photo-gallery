@@ -8,33 +8,33 @@ use yii\grid\GridView;
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
 $this->title = Yii::t('pg.photo', 'Photos');
-$this->params['breadcrumbs'][] = $this->title;
+$i = 0;
 ?>
 <div class="photo-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
-    <p>
-        <?= Html::a(Yii::t('pg.photo', 'Create {modelClass}', [
-    'modelClass' => 'Photo',
-]), ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
+    <table class="table borderless gallery">
+        <?php
 
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
-        'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+        foreach($dataProvider->getModels() as $id => $photo)
+        {
+            if($i == 0)
+            {
+                echo '<tr>';
+            }
 
-            'id',
-            'user_id',
-            'file_location',
-            'description',
-            'uploaded_time',
+            echo '<td>'.Html::a(Html::img(Yii::$app->request->hostInfo.'/'.Yii::$app->params['galleryPath'].$photo->file_location), ['view', 'id' => $photo->id]).'</td>';
+            $i++;
 
-            ['class' => 'yii\grid\ActionColumn'],
-        ],
-    ]); ?>
+            if($i == 3)
+            {
+                echo '</tr>';
+                $i = 0;
+            }
+        }
+
+        ?>
+    </table>
 
 </div>
