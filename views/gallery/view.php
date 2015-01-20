@@ -75,16 +75,16 @@ $ownPhoto = $authorized && $model->user_id == Yii::$app->user->identity->getId()
             foreach($model->getComments() as $comment) {
                 ?>
                 <div class="row">
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-8">
                         <div class="row">
                         <hr/>
-                        <div class="col-md-2"><b><?= $comment->getUsername() ?></b>:</div>
+                        <div class="col-md-2 text-right"><b><?= $comment->getUsername() ?></b>:</div>
                         <div class="col-md-8">&nbsp<?= $comment->text ?></div>
                         <div class="col-md-2">+<?= $comment->rating ?></div>
                         </div>
                     </div>
-                    <div class="col-md-4"></div>
+                    <div class="col-md-2"></div>
                 </div>
                 <?php
             }
