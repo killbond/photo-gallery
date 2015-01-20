@@ -1,39 +1,64 @@
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Photo */
 
-$this->title = $model->id;
+$this->title = $model->description;
 $this->params['breadcrumbs'][] = ['label' => Yii::t('pg.photo', 'Photos'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
+$authorized = (bool)Yii::$app->user->identity;
+$ownPhoto = $authorized && $model->user_id == Yii::$app->user->identity->getId();
 ?>
 <div class="photo-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
+    <?php if($ownPhoto) { ?>
+        <p>
+            <?= Html::a(Yii::t('pg.photo', 'Delete'), ['delete', 'id' => $model->id], [
+                'class' => 'btn btn-danger',
+                'data' => [
+                    'confirm' => Yii::t('pg.photo', 'Are you sure you want to delete this item?'),
+                    'method' => 'post',
+                ],
+            ]) ?>
+        </p>
+    <?php } ?>
 
-    <p>
-        <?= Html::a(Yii::t('pg.photo', 'Update'), ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a(Yii::t('pg.photo', 'Delete'), ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => Yii::t('pg.photo', 'Are you sure you want to delete this item?'),
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table borderless text-center">
+                <tr>
+                    <td>
+                        <?= Html::img(Yii::$app->request->hostInfo.'/'.Yii::$app->params['galleryPath'].$model->file_location) ?>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            'id',
-            'user_id',
-            'file_location',
-            'description',
-            'uploaded_time',
-        ],
-    ]) ?>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <table class="table borderless text-center">
+                <tr>
+                    <td class="text-center" colspan="2"><h1><?= Html::encode($this->title) ?></h1></td>
+                </tr>
+
+                <?php if(!$ownPhoto) { ?>
+                    <tr>
+                        <td class="text-right"><?= Yii::t('pg.main', 'User name') ?></td>
+                        <td class="text-left"><?= $model->getUser()->username; ?></td>
+                    </tr>
+                    <tr>
+                        <td class="text-right"><?= Yii::t('pg.main', 'email') ?></td>
+                        <td class="text-left"><?= $model->getUser()->email; ?></td>
+                    </tr>
+                <?php } ?>
+            </table>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
 
 </div>

@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use auth\models\User;
 use Yii;
 
 /**
@@ -15,6 +16,8 @@ use Yii;
  */
 class Photo extends \yii\db\ActiveRecord
 {
+    protected $_user;
+
     /**
      * @inheritdoc
      */
@@ -47,5 +50,16 @@ class Photo extends \yii\db\ActiveRecord
             'description' => Yii::t('pg.photo', 'Description'),
             'uploaded_time' => Yii::t('pg.photo', 'Uploaded Time'),
         ];
+    }
+
+    /**
+     * @return null|\auth\models\User
+     */
+    public function getUser()
+    {
+        if(!$this->_user) {
+            $this->_user = User::findIdentity($this->user_id);
+        }
+        return $this->_user;
     }
 }
