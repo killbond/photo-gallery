@@ -41,7 +41,10 @@ class PhotoSearch extends Photo
      */
     public function search($params)
     {
-        $query = Photo::find();
+        $query = Photo::find()->select('photo.*, SUM(comment.rating) rating')
+            ->leftJoin('comment', 'comment.photo_id = photo.id')
+            ->groupBy('photo.id')
+            ->orderBy('rating DESC');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

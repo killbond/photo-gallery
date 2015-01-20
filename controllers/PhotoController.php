@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 
+use app\models\Comment;
+use app\models\CommentForm;
 use app\models\PhotoForm;
 use Yii;
 use app\models\Photo;
@@ -49,8 +51,32 @@ class PhotoController extends Controller
      */
     public function actionView($id)
     {
+        $authorized = (bool)Yii::$app->user->identity;
+        $commentForm = new CommentForm();
+        $commentForm->scenario = 'user';
+
+        if(!$authorized) {
+            $commentForm->scenario = 'guest';
+        }
+
+        if ($commentForm->load(Yii::$app->request->post()) && $commentForm->validate()) {
+            $comment = new Comment();
+
+            if($authorized) {
+                $comment->user_id = Yii::$app->user->identity->getId();
+            } else {
+                $comment->username = $commentForm->username;
+                $comment->email = $commentForm->email;
+            }
+            $comment->photo_id = $id;
+            $comment->text = $commentForm->text;
+            $comment->rating = $commentForm->rating;
+            $comment->save();
+        }
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'commentForm' => $commentForm,
         ]);
     }
 

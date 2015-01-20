@@ -11,6 +11,6 @@ return [
     'Sign In'   => 'Войти',
     'Sign Out'  => 'Выйти',
     'Home'      => 'Главная',
-    'email'     => 'email',
+    'email'     => 'Email',
     'User name' => 'Имя пользователя',
 ];

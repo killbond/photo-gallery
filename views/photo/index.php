@@ -16,24 +16,22 @@ $i = 0;
 
     <table class="table borderless gallery">
         <?php
-
-        foreach($dataProvider->getModels() as $id => $photo)
-        {
-            if($i == 0)
+            foreach($dataProvider->getModels() as $id => $photo)
             {
-                echo '<tr>';
+                if($i == 0)
+                {
+                    echo '<tr>';
+                }
+
+                echo '<td>'.Html::a(Html::img(Yii::$app->request->hostInfo.'/'.Yii::$app->params['galleryPath'].$photo->file_location), ['view', 'id' => $photo->id]).'</td>';
+                $i++;
+
+                if($i == 3)
+                {
+                    echo '</tr>';
+                    $i = 0;
+                }
             }
-
-            echo '<td>'.Html::a(Html::img(Yii::$app->request->hostInfo.'/'.Yii::$app->params['galleryPath'].$photo->file_location), ['view', 'id' => $photo->id]).'</td>';
-            $i++;
-
-            if($i == 3)
-            {
-                echo '</tr>';
-                $i = 0;
-            }
-        }
-
         ?>
     </table>
 

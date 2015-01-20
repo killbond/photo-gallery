@@ -17,6 +17,8 @@ use Yii;
 class Photo extends \yii\db\ActiveRecord
 {
     protected $_user;
+    protected $_comments;
+    protected $_rating;
 
     /**
      * @inheritdoc
@@ -27,39 +29,32 @@ class Photo extends \yii\db\ActiveRecord
     }
 
     /**
-     * @inheritdoc
-     */
-    public function rules()
-    {
-        return [
-            [['user_id'], 'integer'],
-            [['uploaded_time'], 'safe'],
-            [['file_location', 'description'], 'string', 'max' => 255]
-        ];
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function attributeLabels()
-    {
-        return [
-            'id' => Yii::t('pg.photo', 'ID'),
-            'user_id' => Yii::t('pg.photo', 'User ID'),
-            'file_location' => Yii::t('pg.photo', 'File Location'),
-            'description' => Yii::t('pg.photo', 'Description'),
-            'uploaded_time' => Yii::t('pg.photo', 'Uploaded Time'),
-        ];
-    }
-
-    /**
      * @return null|\auth\models\User
      */
     public function getUser()
     {
         if(!$this->_user) {
-            $this->_user = User::findIdentity($this->user_id);
+            $this->_user = $this->hasOne(User::className(), ['id' => 'user_id'])->one();
         }
         return $this->_user;
+    }
+
+    public function getComments()
+    {
+        if(!$this->_comments) {
+            $this->_comments = $this->hasMany(Comment::className(), ['photo_id' => 'id'])->all();
+        }
+        return $this->_comments;
+    }
+
+    public function getRating()
+    {
+        if(!$this->_rating) {
+            $this->_rating = 0;
+            foreach($this->getComments() as $comment) {
+                $this->_rating += $comment->rating;
+            }
+        }
+        return $this->_rating;
     }
 }
