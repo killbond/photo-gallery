@@ -43,23 +43,4 @@ class CommentForm extends Model
             'rating' => Yii::t('pg.comment', 'Rating'),
         ];
     }
-
-    protected function _loggedIn()
-    {
-        return (bool)Yii::$app->user->identity;
-    }
-
-    public function validateEmail($attribute, $params)
-    {
-        if(!$this->_loggedIn() && !$this->email) {
-            $this->addError($attribute, [Yii::t('yii', '{attribute} cannot be blank.'), $this->getAttributeLabel($attribute)]);
-        }
-    }
-
-    public function validateUsername($attribute, $params)
-    {
-        if(!$this->_loggedIn() && !$this->username) {
-            $this->addError($attribute, [Yii::t('yii', '{attribute} cannot be blank.'), $this->getAttributeLabel($attribute)]);
-        }
-    }
 } 
