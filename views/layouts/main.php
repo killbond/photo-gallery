@@ -38,7 +38,7 @@ AppAsset::register($this);
                     'options' => ['class' => 'navbar-nav navbar-right'],
                     'items' => [
                         ['label' => Yii::t('pg.main', 'Home'), 'url' => Yii::$app->homeUrl],
-                        ['label' => Yii::t('pg.photo', 'Create photo'), 'url' => ['/photo/create']],
+                        ['label' => Yii::t('pg.photo', 'Create photo'), 'url' => ['/gallery/create']],
                         ['label' => Yii::t('pg.main', 'Sign Up'), 'url' => ['/auth/default/signup']],
                         ['label' => Yii::t('pg.main', 'Sign In'), 'url' => ['/auth/default/login']]
                     ],
@@ -48,7 +48,7 @@ AppAsset::register($this);
                     'options' => ['class' => 'navbar-nav navbar-right'],
                     'items' => [
                         ['label' => Yii::t('pg.main', 'Home'), 'url' => Yii::$app->homeUrl],
-                        ['label' => Yii::t('pg.photo', 'Create photo'), 'url' => ['/photo/create']],
+                        ['label' => Yii::t('pg.photo', 'Create photo'), 'url' => ['/gallery/create']],
                         ['label' => Yii::t('pg.main', 'Sign Out') . ' (' . Yii::$app->user->identity->username . ')',
                             'url' => ['/auth/default/logout'],
                             'linkOptions' => ['data-method' => 'post']],
