@@ -26,7 +26,10 @@ class CommentForm extends Model
         return [
             [['rating'], 'integer', 'on' => ['user', 'guest']],
             [['text'], 'string', 'max' => 255, 'on' => ['user', 'guest']],
+
             ['username', 'required', 'on' => 'guest'],
+            ['username', 'string', 'min' => 2, 'max' => 255, 'on' => 'guest'],
+            ['email', 'email', 'on' => 'guest'],
             ['email', 'required', 'on' => 'guest'],
         ];
     }
